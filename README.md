@@ -54,8 +54,7 @@ security; cloud providers have some of the best security in  the industry
 
 reliability; providers have robust frameworks designed around high avalability. 
 
-![Alt text](../images/advantages-of-cloud-computing.png)
-
+![Alt text](images/advantages-of-cloud-computing.png)
 
 
 More can be found and read here: 
@@ -86,7 +85,7 @@ More reading:
 
 [AWS what is it?](https://aws.amazon.com/what-is-aws/)
 
-![Alt text](../images/image-134.webp)
+![Alt text](images/image-134.webp)
 
 ### Brief history
 
@@ -102,7 +101,7 @@ AWS experienced significant growth during this period, attracting a wide range o
 #### 2016 onwards
 AWS further expanded its global footprint with the establishment of new regions and availability zones around the world.
 
-![Alt text](../images/history-of-aws.png)
+![Alt text](images/history-of-aws.png)
 
 Today, AWS is widely recognized as a leading provider of cloud computing services, offering a vast portfolio of services to enable businesses and developers to build and deploy applications at scale.
 
@@ -124,7 +123,7 @@ OCI leverages Oracle's expertise in enterprise software and offers specific serv
 #### Salesforce
 Salesforce is primarily known for its customer relationship management (CRM) software. It provides services for building and deploying enterprise applications.
 
-![Alt text](../images/Group-169.webp)
+![Alt text](images/Group-169.webp)
 
 ## IaaS, PaaS and SaaS
 
@@ -137,7 +136,7 @@ Platform-as-a-Service. This is aimed at developers and engineers, and provides l
 ### SaaS
 Software-as-a-service. This provides ready-to-use software for the end user. These users do not need to worry about the infrastructre behind it or maintaining it, the provider does it all. This has the least control. 
 
-![Alt text](../images/cloud-service-models-iaas-paas-saas-stackscale.jpg)
+![Alt text](images/cloud-service-models-iaas-paas-saas-stackscale.jpg)
 
 
 ## Types of cloud computing
@@ -151,7 +150,7 @@ Private cloud refers to a cloud infrastructure and services that are dedicated t
 ### Hybrid Cloud
 Hybrid cloud refers to a combination of public and private cloud environments that are connected and operate as a single. This model allows organisations to take advantage of the scalability, cost-efficiency, and flexibility of the public cloud while maintaining sensitive data or critical workloads in a private cloud.
 
-![Alt text](../images/types-of-cloud-computing.jpg)
+![Alt text](images/types-of-cloud-computing.jpg)
 
 ## Who uses the different clouds?
 
