@@ -142,10 +142,10 @@ Software-as-a-service. This provides ready-to-use software for the end user. The
 ## Types of cloud computing
 
 ### Public Cloud
-The public cloud refers to cloud services which are delievered over the internet by providers such as AWS, GCP and Azure. Multiple organizations or individuals share the same infrastructure. The provider is responsible for managing and maintaining the infrastructure, ensuring security, scalability, and availability.
+The public cloud refers to cloud services which are available to essentially anyone, anyone can share and access the services. Their provided by companies like AWS, GCP and Azure. The provider is responsible for managing and maintaining the infrastructure, ensuring security, scalability, and availability.
 
 ### Private Cloud
-Private cloud refers to a cloud infrastructure and services that are dedicated to a single organization. the infrastructure is not shared with other organizations, it gives greater control, security, and customization options.Private clouds are suitable for organizations with specific compliance requirements.
+Private cloud refers to a cloud services that are dedicated to a single organization. The infrastructrure is specifc for a particular company. the infrastructure is not shared with other organizations, it gives greater control, security, and customization options. Private clouds are suitable for organizations with specific compliance requirements.
 
 ### Hybrid Cloud
 Hybrid cloud refers to a combination of public and private cloud environments that are connected and operate as a single. This model allows organisations to take advantage of the scalability, cost-efficiency, and flexibility of the public cloud while maintaining sensitive data or critical workloads in a private cloud.
