@@ -8,7 +8,7 @@ Refer to the pervios repo to see how to set up an instance. here:
 https://github.com/MasumA009/tech230_aws/blob/main/AWS_intro.md
 ```
 
-### Launch Nginx instance: User code
+## Launch Nginx instance: User code
 
 however instead of launching, navigate down to advance settings and type in the user code:
 ```
@@ -70,6 +70,8 @@ After this folow steps 1 and 2 to create an image.
 
 
 ## Additional: check status
+
+Ensure your in your `.ssh` folder.
 
 open a gitbash as admin, 
 navigate to .ssh file and connect the instance via SSH 
@@ -191,5 +193,67 @@ select the instance and go on create ami from
  Like before, select the instance, navigate to actions -> image and templates -> create template from instance
 
  Fill in the details.
- 
+
 ![Alt text](images/Screenshot%202023-05-17%20155928.png)
+
+## Posts page
+
+in order to have the posts page running we need:
+Nginx running
+node.js to be running
+Mongodb to be running
+
+
+
+
+After they are running:
+
+Open 2 bash terminal, one for mongodb and one for app.
+
+
+on the mongodb one:
+check it is running:
+```
+ sudo systemctl status mongodb
+```
+`ls` it to find the name of the config file, 
+
+Find the file and go into it to change the bind IP to:
+```
+0.0.0.0
+```
+go into file:
+```
+ sudo nano mongodb.conf
+```
+then:
+```
+sudo systemctl restart mongodb
+ubuntu@ip-172-31-53-177:/etc$ sudo systemctl enable mongodb
+```
+
+
+
+run
+```
+node --version
+```
+to check it is. then run:
+```
+export DB_HOST=mongodb://IP ADDRESS:27017//posts
+``` 
+Then:
+```
+printenv DB_HOSTS
+```
+then cd into `app` and:
+```
+npm install
+```
+if the database is not seeded run:
+```
+node seeds/seed.js
+```
+
+
+![Alt text](images/Screenshot%202023-05-18%20120855.png)
