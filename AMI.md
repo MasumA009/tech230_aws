@@ -218,6 +218,11 @@ check it is running:
 ```
 `ls` it to find the name of the config file, 
 
+go into the config file via:
+```
+sudo nano /etc/mongodb.conf
+```
+
 Find the file and go into it to change the bind IP to:
 ```
 0.0.0.0
