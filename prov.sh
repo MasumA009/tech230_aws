@@ -8,31 +8,9 @@ sudo apt-get install nginx -y
 
 sudo bash -c 'cat <<EOF > /etc/nginx/sites-available/default'
 
-server {
-    listen 80 default_server;
-    listen [::]:80 default_server;
+sed -i 's+try_files $uri $uri/ =404;+proxy_pass http://localhost:3000;'
 
-    root /var/www/html;
-    server_name _;
-    location / {
-        proxy_pass http://localhost:3000;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade \$http_upgrade;
-        proxy_set_header Connection 'upgrade';
-        proxy_set_header Host \$host;
-        proxy_cache_bypass \$http_upgrade;
-    }
-    #proxy_pass http://localhost:3000/;
 
-    location /posts {
-        proxy_pass http://localhost:3000/posts;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade \$http_upgrade;
-        proxy_set_header Connection 'upgrade';
-        proxy_set_header Host \$host;
-        proxy_cache_bypass \$http_upgrade;
-    }
-}" | sudo tee /etc/nginx/sites-available/default
 
 sudo systemctl restart nginx
 sudo systemctl enable nginx
@@ -49,11 +27,12 @@ sudo npm install pm2 -g
 echo -e "\nexport DB_HOST=mongodb://192.168.10.150:27017/posts" >> ~/.bashrc
 source .bashrc
 
+git clone https://github.com/MasumA009/app.git
+
 cd ~/repo/app
 sudo npm install
 
 # Install dependencies from package.json
-
 node seeds/seed.js
 
 # Start/restart the app (if already running)
