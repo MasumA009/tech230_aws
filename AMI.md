@@ -257,3 +257,68 @@ node seeds/seed.js
 
 
 ![Alt text](images/Screenshot%202023-05-18%20120855.png)
+
+
+## Setting up reverse proxy
+
+### Provison
+ 
+(Thursday and Friday Tasks)
+
+first we need to create a provisions file, i copied mine from when we created our multi virtual machines. However we need to change some parts of it:
+
+#### Note: to edit the file from the terminal we use: 
+```
+nano prov.sh
+```
+
+Next we need to add in a reverse proxy:
+```
+sudo bash -c 'cat <<EOF > /etc/nginx/sites-available/default'
+
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+
+    root /var/www/html;
+    server_name _;
+    location / {
+        proxy_pass http://localhost:3000;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade \$http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host \$host;
+        proxy_cache_bypass \$http_upgrade;
+    }
+    location /posts {
+        proxy_pass http://localhost:3000/posts;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade \$http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host \$host;
+        proxy_cache_bypass \$http_upgrade;
+    }
+}" | sudo tee /etc/nginx/sites-available/default
+```
+#### (Part B)
+In order to start the app in the background we need to use:
+'''
+pm2 stop app.js
+pm2 start app.js --update-env
+'''
+
+And then run it using:
+```
+./prov.sh
+```
+Success!
+![Alt text](images/Screenshot%202023-05-19%20113915.png)
+
+this can be condensed using:
+```
+proxy_pass http://localhost:3000/;
+```
+
+### (Part C)
+
+use `git clone`. 
