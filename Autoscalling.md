@@ -132,6 +132,14 @@ I created an instance from this and it worked correctly!
 ## Launch template
 Now we need to create a template, this is done above, but here it is:
 
+NOTE: we need to add some code in the user data area:
+```
+#!/bin/bash
+cd /home/ubuntu/app
+npm install
+pm2 start app.js
+```
+
 ![Alt text](autoscale-image/Screenshot%202023-05-23%20122627.png)
 
 ## ASG
