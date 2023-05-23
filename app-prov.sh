@@ -1,7 +1,12 @@
+#!/bin/bash
 curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 
 sudo apt-get install nodejs -y
 sudo npm install pm2 -g
-cd app
+
+cd /home/ubuntu/app
 sudo npm install
-sudo pm2 start app.js
+sudo pm2 start app.js --update-env
+
+sudo pm2 restart app.js --update-env
+
