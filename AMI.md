@@ -380,3 +380,14 @@ node seeds/seed.js
 pm2 start app.js --update-env
 pm2 restart app.js --update-env
 ```
+
+### part d
+
+I have created a mongodb AMI that will always run mongodb in an instance:
+
+![Alt text](images/Screenshot%202023-05-23%20165111.png)
+
+This should always run:
+
+![Alt text](images/Screenshot%202023-05-23%20165207.png)
+

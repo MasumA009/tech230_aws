@@ -10,3 +10,4 @@ sudo pm2 start app.js --update-env
 
 sudo pm2 restart app.js --update-env
 
+export DB_HOST = 172.31.46.126
