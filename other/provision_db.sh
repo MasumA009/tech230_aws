@@ -15,7 +15,7 @@ echo "deb https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.2 multiverse"
 sudo apt-get update -y
 sudo apt-get upgrade -y
 
-#installiation
+#install
 sudo apt-get install -y mongodb
 
 # changes bindip to 0.0.0.0

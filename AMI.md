@@ -337,6 +337,8 @@ And to check if the changes have been made successfully:
 
 use `git clone https://github.com/MasumA009/app.git`. 
 
+NOTE: I already have an AMI that produces a instance with the `APP` files installed. 
+
 The fulll provions file:
 ```
 #!/bin/bash
@@ -391,3 +393,46 @@ This should always run:
 
 ![Alt text](images/Screenshot%202023-05-23%20165207.png)
 
+next, i connect to the app via terminal, this allows me to put in my DB_host command. 
+```
+export DB_HOST=mongodb://172.31.44.102:27017/posts
+```
+
+![Alt text](images-more/Screenshot%202023-05-24%20114930.png)
+
+this resulted in a working page. 
+![Alt text](images-more/Screenshot%202023-05-24%20154310.png)
+
+### part e
+
+We can change the bind ip by typing this into the db terminal:
+```
+sudo sed -i "s/bindIp: 127.0.0.1/bindIp: 0.0.0.0/" /etc/mongod.conf
+```
+
+this has changed the bind Ip for us:
+![Alt text](images-more/Screenshot%202023-05-24%20140248.png)
+
+
+Now restart mongodb
+
+### The team has struggled to get the posts page working. Some errors i came across and fixed were:
+
+### I hope i have learnt from these mistakes and can come back to  this list in the future. 
+
+1. My AMI wasnt running the correct `app` files. 
+I fixed it by deleting the old image and creating a new image, this was done by using my step-by-step guide.
+
+2. My DB AMI wasn't runnng mongodb. I created a new AMI where it does work.
+
+3. Placing an appropiate Sha-bang, it should be: `#!/bin/bash`.
+
+4. Not having the correct Ip address
+find the correct enviornment variable, this was done by using:
+```
+printenv DB_HOST
+```
+this gave the correct IP address for me to use. 
+I then had to `sudo nano .bashrc` into the file and change my BH_HOST variable.
+
+5. 
