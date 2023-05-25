@@ -146,7 +146,9 @@ Success!
 
 ![Alt text](vpc-image/Screenshot%202023-05-23%20154617.png)
 
+## 2 tier deployment
 
+In order to create a 
 
 
 
