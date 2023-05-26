@@ -22,7 +22,6 @@ Before reading the repo, here are a couple things you should know:
 More infomation can be read here: 
 [AWS's VPCs](https://docs.aws.amazon.com/whitepapers/latest/aws-vpc-connectivity-options/amazon-vpc-to-amazon-vpc-connectivity-options.html)
 
-# 2 Tier deployment
 
 ## Step 1: Create VPC
 
@@ -152,6 +151,132 @@ sudo apt-get install nginx -y
 Success!
 
 ![Alt text](vpc-image/Screenshot%202023-05-23%20154617.png)
+
+
+
+
+
+
+
+
+
+# 2 Tier:
+
+## Part1 
+
+
+## Step 1: Create VPC
+
+Search for `VPC` on the dropdown menu.
+![Alt text](vpc-image/Screenshot%202023-05-23%20145017.png)
+
+Follow it through,
+
+1. Click `create`, and modify. 
+
+2. Select: `VPC only`, 
+
+3. Our `IPv4 CIDR` is  `10.0.0.0/16`.
+
+![Alt text](even-more-images/Screenshot%202023-05-26%20131547.png)
+
+## Step 2: Internet gateway
+Select `Internet Gateway` on the left dropdown menu. 
+
+Click Create `Internet gateway`.
+
+![Alt text](even-more-images/Screenshot%202023-05-26%20132750.png)
+
+As shown here:
+
+![Alt text](even-more-images/Screenshot%202023-05-26%20132828.png)
+
+## Step 3: Connect Internet Gateway to VPC
+
+From the action menu, select: `Attach VPC`:
+
+![Alt text](vpc-image/Screenshot%202023-05-23%20145832.png)
+
+Select the VPC by searching, in this case it was my name. 
+
+![Alt text](vpc-image/Screenshot%202023-05-23%20145852.png)
+
+## Step 4: Create Subnet 
+
+From the menu on the left, select `Subnet`, and `create subnet`.
+
+From here we can create muliple subnets.
+
+In this example we need to make a public subnet.
+
+Follow these settings:
+
+![Alt text](vpc-image/Screenshot%202023-05-23%20150554.png)
+
+![Alt text](vpc-image/Screenshot%202023-05-23%20150631.png)
+
+Remember we can add other subnets if needed. 
+
+## Private subnet
+
+to add a private subnet, select `Add subnet` at the bottom. 
+Add the details and appropiate names:
+
+
+![Alt text](even-more-images/Screenshot%202023-05-26%20141205.png)
+
+## Step 5: Create a routing table
+
+From the menu on the left, select `Route table`. click `Create`.
+
+Here we are creating a public route table.
+
+![Alt text](even-more-images/Screenshot%202023-05-26%20141254.png)
+
+![Alt text](vpc-image/Screenshot%202023-05-23%20150915.png)
+
+1. Select `Subnet associations`, located down below. 
+
+![Alt text](vpc-image/Screenshot%202023-05-23%20151205.png)
+
+2. Select the Public subnet for the Public route table. 
+
+3. After selecting it, confirm it. 
+
+### Confirmation (checking)
+
+we can then check if it has worked by checking the associations:
+
+![Alt text](even-more-images/Screenshot%202023-05-26%20141456.png)
+
+NOTE: the private route table is automatically created.
+
+### Connect Internet Gateway to route table
+
+In order to connect to the subnet, we need to connect the internet to the route table. 
+
+1. Click `Edit routes` at the bottom of the page.
+
+2. Add a route and input the following:
+
+![Alt text](vpc-image/Screenshot%202023-05-23%20151719.png)
+
+![Alt text](vpc-image/Screenshot%202023-05-23%20151814.png)
+
+
+NOTE: We do not need to create the route table for the PRIVATE subnet, it is done automatically. 
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ## new db instance
