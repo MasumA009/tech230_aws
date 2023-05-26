@@ -75,6 +75,11 @@ Follow these settings:
 
 Remember we can add other subnets if needed. 
 
+## Private subnet
+
+to add a private subnet, select `Add subnet` at the bottom. 
+Add the details and appropiate names.
+
 ## Step 5: Create a routing table
 
 From the menu on the left, select `Route table`. click `Create`.
@@ -147,6 +152,95 @@ sudo apt-get install nginx -y
 Success!
 
 ![Alt text](vpc-image/Screenshot%202023-05-23%20154617.png)
+
+
+## new db instance
+
+new network and vpc selection:
+
+Remember we created the VPC in the earlier steps.
+
+![Alt text](more-images/Screenshot%202023-05-26%20115725.png)
+
+Here are the security requirments:
+It should allow the following:
+
+![Alt text](more-images/Screenshot%202023-05-26%20115746.png)
+
+## launch new app instance
+
+Select the correct ubuntu
+
+Version 20.04:
+
+![Alt text](more-images/Screenshot%202023-05-26%20120117.png)
+
+The old versions will not work.
+
+network settings:
+
+![Alt text](more-images/Screenshot%202023-05-26%20120230.png)
+
+sg:
+
+![Alt text](more-images/Screenshot%202023-05-26%20120406.png)
+
+
+user data:
+
+![Alt text](more-images/Screenshot%202023-05-26%20120527.png)
+
+here is the code:
+
+```
+#!/bin/bash
+
+# Update and upgrade
+sudo apt-get update -y
+sudo apt-get upgrade -y
+
+# install nginx
+sudo apt-get install nginx -y
+
+# reverse proxy
+sudo sed -i "s/try_files \$uri \$uri\/ =404;/proxy_pass http:\/\/localhost:3000\/;/" /etc/nginx/sites-available/default
+
+# restart nginx
+sudo systemctl restart nginx
+
+# install nodejs
+sudo apt-get install python-software-common
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+sudo apt-get install nodejs -y
+
+# Environment variable setup
+# remeber to get DB Ip address
+export DB_HOST=mongodb://10.0.3.131:27017/posts
+
+# My app folder has aready been installed from the AMI, however we can use:
+# git clone https://github.com/MasumA009/app.git repo
+
+# seeding db
+node seeds/seed.js
+
+# install pm2
+sudo npm install pm2 -g 
+# start the app with env variable
+pm2 start app.js --update-env
+```
+
+Launch it... 
+first nginx launched...
+then bad gateway...
+
+![Alt text](more-images/Screenshot%202023-05-26%20121403.png)
+
+then app page...
+
+![Alt text](more-images/Screenshot%202023-05-26%20121502.png)
+
+then POSTS PAGE!
+![Alt text](more-images/Screenshot%202023-05-26%20121522.png)
 
 
 
