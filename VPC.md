@@ -22,6 +22,8 @@ Before reading the repo, here are a couple things you should know:
 More infomation can be read here: 
 [AWS's VPCs](https://docs.aws.amazon.com/whitepapers/latest/aws-vpc-connectivity-options/amazon-vpc-to-amazon-vpc-connectivity-options.html)
 
+# 2 Tier deployment
+
 ## Step 1: Create VPC
 
 Search for `VPC` on the dropdown menu.
@@ -146,9 +148,6 @@ Success!
 
 ![Alt text](vpc-image/Screenshot%202023-05-23%20154617.png)
 
-## 2 tier deployment
-
-In order to create a 
 
 
 
