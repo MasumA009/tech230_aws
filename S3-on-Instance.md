@@ -116,6 +116,7 @@ I tried again with the command:
 aws s3 mb s3://tech230-masum-s3bucket
 ```
 resulted in:
+
 ![Alt text](s3-instance-images/Screenshot%202023-05-25%20170656.png)
 
 after running 
@@ -123,6 +124,7 @@ after running
 aws s3 ls
 ```
 to check the lists of buckets, i recieved:
+
 ![Alt text](s3-instance-images/Screenshot%202023-05-25%20170839.png)
 
 ## Upload file to s3 bucket
