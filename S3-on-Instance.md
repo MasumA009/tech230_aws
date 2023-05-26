@@ -129,23 +129,26 @@ to check the lists of buckets, i recieved:
 
 follow the syntax:
 ```
-aws s3 cp path/to/file.ext s3://bucket-name/your-file-key
+aws s3 cp OneDrive/Documents/Sparta global/aws/tech230_aws/tech230_aws/test.txt s3://tech230-masum-s3bucket/
 ```
 
 ## Retrieve file from s3 bucket
 
 follow the syntax:
 ```
-aws s3 cp s3://bucket-name/your-file-key local-file-name.ext
+aws s3 cp s3://tech230-masum-s3bucket/test2.txt .
 ```
+
+![Alt text](s3-instance-images/Screenshot%202023-05-26%20104808.png)
+
 
 ## Delete content from s3 bucket
 
 follow the syntax:
 ```
-aws s3 rm s3://bucket-name/your-object-key
+aws s3 rm s3://tech230-masum-s3bucket/test2.txt
 ```
-
+![Alt text](s3-instance-images/Screenshot%202023-05-26%20104917.png)
 
 ## Delete s3 bucket:
 run this:
